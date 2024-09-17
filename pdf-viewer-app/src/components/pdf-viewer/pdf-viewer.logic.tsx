@@ -44,7 +44,7 @@ export const usePdfViewerLogic = (props: Props) => {
 
   // State to store the visible items in the TOC
   const [visibleItems, setVisibleItems] = useState<{ [key: number]: boolean }>(
-    {}
+    {},
   );
   const [highlightedItem, setHighlightedItem] = useState<number | null>(null);
 
@@ -62,7 +62,7 @@ export const usePdfViewerLogic = (props: Props) => {
   const handleRenderPdf = (
     canvas: HTMLCanvasElement,
     index: number,
-    el: HTMLCanvasElement | null
+    el: HTMLCanvasElement | null,
   ) => {
     canvasRefs.current[index] = el;
     if (el) {
@@ -94,7 +94,7 @@ export const usePdfViewerLogic = (props: Props) => {
             font.highlightX,
             canvas.height - rects[5] - rects[3],
             font.highlightWidth,
-            font.highlightHeight + 4
+            font.highlightHeight + 4,
           );
         }
 
@@ -144,10 +144,10 @@ export const usePdfViewerLogic = (props: Props) => {
           if (normalStr.toLowerCase().includes(query.toLowerCase())) {
             const transform = textItem.transform;
             const width = Math.sqrt(
-              transform[0] * transform[0] + transform[1] * transform[1]
+              transform[0] * transform[0] + transform[1] * transform[1],
             );
             const height = Math.sqrt(
-              transform[2] * transform[2] + transform[3] * transform[3]
+              transform[2] * transform[2] + transform[3] * transform[3],
             );
 
             const partBeforeWord = originalSTR.slice(0, wordIndex);
@@ -235,7 +235,7 @@ export const usePdfViewerLogic = (props: Props) => {
   };
 
   const scrollTo = (index: number | null) => {
-    if (!index) return;
+    if (index == null) return;
     const item = toc[index];
 
     canvasRefs.current.forEach((canvas, pageIndex) => {
