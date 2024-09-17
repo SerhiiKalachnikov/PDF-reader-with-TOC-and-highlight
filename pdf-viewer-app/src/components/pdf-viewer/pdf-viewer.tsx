@@ -1,6 +1,6 @@
 import { usePdfViewerLogic } from "./pdf-viewer.logic";
 
-import { Box, Divider, IconButton, TextField, useTheme } from "@mui/material";
+import { Box, Divider, IconButton, TextField } from "@mui/material";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import SubjectOutlinedIcon from "@mui/icons-material/SubjectOutlined";
 import TableOfContents from "../table-of-contents/table-of-contents";
@@ -11,10 +11,8 @@ interface Props {
   tocUrl: string;
 }
 const PDFViewer = (props: Props) => {
-  const { data, handlers, setState, state } = usePdfViewerLogic(props);
+  const { handlers, setState, state } = usePdfViewerLogic(props);
   const sx = usePdfViewerStyle();
-
-  const theme = useTheme();
 
   return (
     <Box sx={sx.wrapper}>

@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Box,
   Typography,
@@ -5,8 +7,11 @@ import {
   ListItemButton,
   ListItemText,
   Divider,
+  ListItemIcon,
 } from "@mui/material";
-import React from "react";
+import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
+import TurnedInOutlinedIcon from "@mui/icons-material/TurnedInOutlined";
+
 import { TocItem } from "../../interfaces/toc";
 import { truncateText } from "../../utils/truncate-text";
 import { useTableOfContentsStyle } from "./table-of-contents.style";
@@ -32,9 +37,15 @@ const TableOfContents = (props: Props) => {
         {toc.map((item, index) => (
           <React.Fragment key={index}>
             <ListItemButton onClick={() => handleItemClick(index)}>
+              <ListItemIcon>
+                {visibleItems[index] ? (
+                  <TurnedInOutlinedIcon />
+                ) : (
+                  <TurnedInNotOutlinedIcon />
+                )}
+              </ListItemIcon>
               <ListItemText>
-                {truncateText(item.text, 35)}
-
+                {truncateText(item.text, 45)}
                 {visibleItems[index] ? "▲" : "▼"}
               </ListItemText>
             </ListItemButton>

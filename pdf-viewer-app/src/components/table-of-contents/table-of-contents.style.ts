@@ -5,6 +5,11 @@ export const useTableOfContentsStyle = () => {
 
   const wrapper: SxProps = {
     flex: 0.5,
+    position: "sticky",
+    top: "0",
+    overscrollBehavior: "contain",
+    height: "100vh",
+    overflowY: "auto",
   };
 
   const openedText: SxProps = {

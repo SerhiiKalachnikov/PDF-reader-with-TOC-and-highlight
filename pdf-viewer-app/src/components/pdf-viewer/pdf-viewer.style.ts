@@ -4,7 +4,7 @@ export const usePdfViewerStyle = () => {
   const theme = useTheme();
 
   const wrapper: SxProps = {
-    py: 2,
+    pt: 2,
   };
 
   const contentWrapper: SxProps = {
@@ -17,10 +17,11 @@ export const usePdfViewerStyle = () => {
     flex: 1,
     display: "flex",
     flexDirection: "column",
+    overscrollBehavior: "contain",
   };
 
   const divider: SxProps = {
-    borderWidth: "1px",
+    borderRightWidth: "1px",
     mx: 3,
   };
 
