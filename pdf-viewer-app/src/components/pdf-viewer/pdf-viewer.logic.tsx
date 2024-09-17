@@ -59,7 +59,66 @@ export const usePdfViewerLogic = (props: Props) => {
       .trim(); // Trim whitespace
   };
 
-  const searchInDocument = async (query: string) => {
+  const handleRenderPdf = (
+    canvas: HTMLCanvasElement,
+    index: number,
+    el: HTMLCanvasElement | null
+  ) => {
+    canvasRefs.current[index] = el;
+    if (el) {
+      el.width = canvas.width;
+      el.height = canvas.height;
+      const context = el.getContext("2d");
+      if (context) {
+        context.drawImage(canvas, 0, 0);
+
+        // Highlight specific areas within the canvas
+        const item = toc[highlightedItem!];
+        if (item && item.page_number === index + 1) {
+          context.strokeStyle = "yellow";
+          context.lineWidth = 3;
+          context.strokeRect(item.left, item.top, item.width, item.height);
+        }
+
+        // Highlight search results
+        for (const res of searchResults) {
+          const page = res.pageIndex;
+          const rects = res.rects;
+          const font = res.font;
+          if (page !== index) continue;
+
+          // if (result.pageIndex === pageIndex) {
+          context.strokeStyle = "blue";
+          context.lineWidth = 2;
+          context.strokeRect(
+            font.highlightX,
+            canvas.height - rects[5] - rects[3],
+            font.highlightWidth,
+            font.highlightHeight + 4
+          );
+        }
+
+        // Highlight text before the word
+        // for (const res of searchResults) {
+        //   const page = res.pageIndex;
+        //   const rects = res.rects;
+        //   const font = res.before;
+        //   if (page !== index) continue;
+
+        //   context.strokeStyle = 'red';
+        //   context.lineWidth = 2;
+        //   context.strokeRect(
+        //     font.highlightX,
+        //     canvas.height - rects[5] - rects[3],
+        //     font.highlightWidth,
+        //     font.highlightHeight,
+        //   );
+        // }
+      }
+    }
+  };
+
+  const handleSearchInDocument = async (query: string) => {
     if (!pdfProxy) return;
 
     const results: BlockSizes[] = [];
@@ -155,9 +214,9 @@ export const usePdfViewerLogic = (props: Props) => {
   };
 
   useEffect(() => {
-    if (searchQuery) {
-      searchInDocument(searchQuery);
-    }
+    if (!searchQuery) return;
+
+    handleSearchInDocument(searchQuery);
   }, [searchQuery]);
 
   const handleItemClick = (index: number) => {
@@ -258,6 +317,6 @@ export const usePdfViewerLogic = (props: Props) => {
       visibleItems,
     },
     setState: { setSearchQuery },
-    handlers: { handleItemClick },
+    handlers: { handleItemClick, handleRenderPdf },
   };
 };

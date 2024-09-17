@@ -12,6 +12,7 @@ const HomePage = () => {
   return (
     <Box sx={sx.wrapper}>
       <Typography variant='h4'>PDF Viewer with TOC</Typography>
+
       <PDFViewer pdfUrl={pdfUrl} tocUrl={tocUrl} />
     </Box>
   );
