@@ -2,6 +2,17 @@
 
 An interactive PDF reader web application with a table of contents and text highlighting capabilities. It allows users to view PDFs, navigate through documents using the TOC, and search and highlight text within the document.
 
+## 🛠️ Technologies Used
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![Material-UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=mui&logoColor=white)
+![PDF.js](https://img.shields.io/badge/PDF.js-FFB900?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+![React-PDF](https://img.shields.io/badge/React--PDF-61DAFB?style=for-the-badge&logo=react&logoColor=blue)
+
 ## 🚀 Features
 
 - 🔍 Search and highlight text within PDFs
@@ -9,8 +20,6 @@ An interactive PDF reader web application with a table of contents and text high
 - 📖 Smooth PDF rendering using React and PDF.js
 - 🖥️ Backend server with Express to serve PDF files and TOC data
 - 💅 Styled with Material-UI for a responsive design
-
-## 🛠️ Technologies Used
 
 ## 📋 Table of Contents
 
@@ -23,15 +32,6 @@ An interactive PDF reader web application with a table of contents and text high
 - [🎯 Usage](#-usage)
 - [🤝 Contributing](#-contributing)
 - [📝 License](#-license)
-
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-![Material-UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=mui&logoColor=white)
-![PDF.js](https://img.shields.io/badge/PDF.js-FFB900?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)
-![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
-![React-PDF](https://img.shields.io/badge/React--PDF-61DAFB?style=for-the-badge&logo=react&logoColor=blue)
 
 ## 📁 Project Structure
 
